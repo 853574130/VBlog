@@ -32,7 +32,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * WebSecurityConfigurerAdapter ，并重写它的方法来设置一些web安全的细节 configure(HttpSecurity
 	 * http) 方法 通过 authorizeRequests() 定义哪些URL需要被保护、哪些不需要被保护。例如以上代码指定了 / 和 /home
 	 * 不需要任何认证就可以访问，其他的路径都必须通过身份验证。 通过 formLogin() 定义当需要用户登录时候，转到的登录页面。
+	 * 
 	 */
+
+	// 为什么有三个configure?第一个configure是拿来干嘛的
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		/*
@@ -43,9 +46,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		 * PasswordEncoder是实现加密解密的接口
 		 */
 		auth.userDetailsService(userService).passwordEncoder(new PasswordEncoder() {
-			/* (non-Javadoc)
-			 *由我们自己调用
-			 * @see org.springframework.security.crypto.password.PasswordEncoder#encode(java.lang.CharSequence)
+			/*
+			 * (non-Javadoc) 由我们自己调用
+			 * 
+			 * @see
+			 * org.springframework.security.crypto.password.PasswordEncoder#encode(java.lang
+			 * .CharSequence)
 			 */
 			@Override
 			public String encode(CharSequence charSequence) {
@@ -67,8 +73,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		/**
-		 * rememberMe 允许配置“记住我”的验证
-		 *  authorizeRequests() 允许使用HttpServletRequest限制访问
+		 * rememberMe 允许配置“记住我”的验证 authorizeRequests() 允许使用HttpServletRequest限制访问
 		 * logout() 添加退出登录支持。当使用WebSecurityConfigurerAdapter时，这将自动应用。默认情况是，访问URL“/
 		 * logout”，使用HTTP会话无效来清除用户，清除已配置的任何#rememberMe()身份验证，SecurityContextHolder清除，然后重定向到“/
 		 * login ？成功” anonymous()
@@ -77,10 +82,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		 * 指定支持基于表单的身份验证。如果未指定FormLoginConfigurer#loginPage(String)，则将生成默认登录页面
 		 * oauth2Login() 根据外部OAuth 2.0或OpenID Connect 1.0提供程序配置身份验证
 		 */
-		http.authorizeRequests().antMatchers("/admin/category/all").authenticated().antMatchers("/admin/**", "/reg")
-				.hasRole("超级管理员")/// admin/**的URL都需要有超级管理员角色，如果使用.hasAuthority()方法来配置，需要在参数中加上ROLE_,如下.hasAuthority("ROLE_超级管理员")
-				.anyRequest().authenticated()// 其他的路径都是登录后即可访问
-				.and().formLogin().loginPage("/login_page").successHandler(new AuthenticationSuccessHandler() {
+		http.authorizeRequests()
+		.antMatchers("/admin/category/all").authenticated()
+		//表示该路径不需要身份认证
+		.antMatchers("/admin/**", "/reg")
+				.hasRole("超级管理员")
+				// admin/**的URL都需要有超级管理员角色，如果使用.hasAuthority()方法来配置，需要在参数中加上ROLE_,如下.hasAuthority("ROLE_超级管理员")
+				.anyRequest().authenticated()// 所有请求都要认证
+				// 其他的路径都是登录后即可访问
+				.and().formLogin()// 表单验证
+				.loginPage("/login_page")
+				// 登录页面为/login_page
+				.successHandler(new AuthenticationSuccessHandler() {
 					@Override
 					public void onAuthenticationSuccess(HttpServletRequest httpServletRequest,
 							HttpServletResponse httpServletResponse, Authentication authentication)
@@ -102,8 +115,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 						out.flush();
 						out.close();
 					}
-				}).loginProcessingUrl("/login").usernameParameter("username").passwordParameter("password").permitAll()
-				.and().logout().permitAll().and().csrf().disable().exceptionHandling()
+				})
+				.loginProcessingUrl("/login")//自定义请求链接
+				.usernameParameter("username")
+				.passwordParameter("password").permitAll()//当访问到这个url不需要身份认证
+				.and()
+				//Return the SecurityBuilder when done using the SecurityConfigurer
+				.logout().permitAll().
+				and().csrf().disable().
+				exceptionHandling()
 				.accessDeniedHandler(getAccessDeniedHandler());
 	}
 
