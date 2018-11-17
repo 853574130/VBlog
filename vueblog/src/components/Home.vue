@@ -2,19 +2,44 @@
   <el-container class="home_container">
     <el-header>
       <div class="home_title">小帅的博客管理平台</div>
-      <div class="home_userinfoContainer">
+      <div class="header-right">
+      <div class="header-user-con">
+         <!-- 全屏显示 -->
+                <!-- <div class="btn-fullscreen" @click="handleFullScreen">
+                    <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">
+                        <i class="el-icon-rank"></i>
+                    </el-tooltip>
+                </div> -->
+                 <!-- 消息中心 -->
+         <div class="btn-bell">
+           
+                    <el-tooltip effect="dark" :content="message?`有${message}条未读消息`:`消息中心`" placement="bottom">
+                        <router-link to="/tabs">
+                            <i class="el-icon-bell"></i>
+                        </router-link>
+                    </el-tooltip>
+
+                    <span class="btn-bell-badge" v-if="message"></span>
+                </div>
+        <!-- 用户头像 -->
+                <div class="user-avator"><img src="../../static/img/img2.jpg"></div>
+        <!-- 用户名下拉菜单 -->
         <el-dropdown @command="handleCommand">
   <span class="el-dropdown-link home_userinfo">
     {{currentUserName}}<i class="el-icon-arrow-down el-icon--right home_userinfo"></i>
   </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item command="sysMsg">系统消息</el-dropdown-item>
+            <!-- <el-dropdown-item command="sysMsg">系统消息</el-dropdown-item>
             <el-dropdown-item command="MyArticle">我的文章</el-dropdown-item>
-            <el-dropdown-item command="MyHome">个人主页</el-dropdown-item>
+            <el-dropdown-item command="MyHome">个人主页</el-dropdown-item> -->
+            <!-- 这个应该另外放个地方 -->
+            <el-dropdown-item command="editpassword">修改密码</el-dropdown-item>
             <el-dropdown-item command="logout" divided>退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
+      </div>
+
     </el-header>
     <el-container>
       <el-aside width="200px">
@@ -74,14 +99,41 @@
             //取消
           })
         }
-      }
+      },
+       // 全屏事件
+            handleFullScreen(){
+                let element = document.documentElement;
+                if (this.fullscreen) {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.webkitCancelFullScreen) {
+                        document.webkitCancelFullScreen();
+                    } else if (document.mozCancelFullScreen) {
+                        document.mozCancelFullScreen();
+                    } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                    }
+                } else {
+                    if (element.requestFullscreen) {
+                        element.requestFullscreen();
+                    } else if (element.webkitRequestFullScreen) {
+                        element.webkitRequestFullScreen();
+                    } else if (element.mozRequestFullScreen) {
+                        element.mozRequestFullScreen();
+                    } else if (element.msRequestFullscreen) {
+                        // IE11
+                        element.msRequestFullscreen();
+                    }
+                }
+                this.fullscreen = !this.fullscreen;
+            }
     },
     mounted: function () {
-      this.$alert('为了确保所有的小伙伴都能看到完整的数据演示，数据库只开放了查询权限和部分字段的更新权限，其他权限都不具备，完整权限的演示需要大家在自己本地部署后，换一个正常的数据库用户后即可查看，这点请大家悉知!', '友情提示', {
-        confirmButtonText: '确定',
-        callback: action => {
-        }
-      });
+      // this.$alert('为了确保所有的小伙伴都能看到完整的数据演示，数据库只开放了查询权限和部分字段的更新权限，其他权限都不具备，完整权限的演示需要大家在自己本地部署后，换一个正常的数据库用户后即可查看，这点请大家悉知!', '友情提示', {
+      //   confirmButtonText: '确定',
+      //   callback: action => {
+      //   }
+      // });
       var _this = this;
       getRequest("/currentUserName").then(function (msg) {
         _this.currentUserName = msg.data;
@@ -91,6 +143,8 @@
     },
     data(){
       return {
+        fullscreen: false,
+        message: 2,
         currentUserName: ''
       }
     }
@@ -103,16 +157,23 @@
     top: 0px;
     left: 0px;
     width: 100%;
+    
   }
 
   .el-header {
-    background-color: #20a0ff;
+    background-color: #070c0f;
     color: #333;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
   }
+   .header-right{
+        float: right;
+        padding-right: 50px;
+        
+    }
 
   .el-aside {
     background-color: #ECECEC;
@@ -134,9 +195,47 @@
     color: #fff;
     cursor: pointer;
   }
+  .user-avator{
+        margin-left: 20px;
+    }
+    .user-avator img{
+        display: block;
+        width:40px;
+        height:40px;
+        border-radius: 50%;
+    }
+    .btn-bell, .btn-fullscreen{
+      font-size:22px;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        border-radius: 15px;
+        cursor: pointer;
+    }
 
-  .home_userinfoContainer {
-    display: inline;
-    margin-right: 20px;
-  }
+  .btn-fullscreen{
+        transform: rotate(45deg);
+        margin-right: 5px;
+        font-size: 24px;
+    }
+   .header-user-con{
+     
+        display: flex;
+        height: 70px;
+        align-items: center;
+    }
+     .btn-bell .el-icon-bell{
+        color: #fff;
+    }
+    .btn-bell-badge{
+        position: absolute;
+        right: 0;
+        top: -2px;
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        background: #f56c6c;
+        color: #fff;
+    }
 </style>
