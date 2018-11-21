@@ -76,13 +76,14 @@
           </div>
         </div>
       </el-card>
+      
     </div>
   </div>
 </template>
 <script>
-  import {getRequest} from '../utils/api'
-  import {putRequest} from '../utils/api'
-  import {deleteRequest} from '../utils/api'
+  import {getRequest} from '../../utils/api'
+  import {putRequest} from '../../utils/api'
+  import {deleteRequest} from '../../utils/api'
   export default{
     mounted: function () {
       this.loading = true;

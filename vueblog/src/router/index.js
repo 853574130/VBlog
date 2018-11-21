@@ -5,11 +5,12 @@ import Home from '@/components/Home'
 import ArticleList from '@/components/ArticleList'
 import CateMana from '@/components/CateMana'
 // import DataCharts from '@/components/dataStatistics/DataCharts'
-import DataCharts from '../components/DataCharts'
-// import dashboard from '../components/dataStatistics/dashboard'
+import DataCharts from '../components/dataStatistics/DataCharts'
+import dashboard from '../components/dataStatistics/dashboard'
+// import attachmanage from '../components/attachmanage'
 // import dashboard from '../components/dashboard'
 import PostArticle from '@/components/PostArticle'
-import UserMana from '@/components/UserMana'
+import UserMana from '@/components/usermanager/UserMana'
 import BlogDetail from '@/components/BlogDetail'
 
 Vue.use(Router)
@@ -21,20 +22,27 @@ export default new Router({
             hidden: true,
             component: Login
         },
-        // {
-        //     path: '/dashboard',
-        //     name: '仪表盘',
-        //     component: dashboard,
-        //     hidden: true
-        // },
-        // {
-        //     path: "/dashboard",
-        //     name: '仪表盘',
-        //     component: resolve =>
-        //         require([
-        //             "../components/dataStatistics/dashboard.vue"
-        //         ], resolve),
-        // },
+        {
+            path: '/home',
+            component: Home,
+            // name: '栏目管理',
+            children: [{
+            path: '/dashboard',
+            name: '仪表盘',
+            component: dashboard,
+            hidden: true,
+            // children: [{
+            //     path: '/articleList',
+            //     name: '文章列表',
+            //     component: ArticleList,
+            //     meta: {
+            //         keepAlive: true
+            //     }
+            // }]
+
+            }]
+        },
+ 
         {
             path: '/home',
             component: Home,
@@ -71,7 +79,21 @@ export default new Router({
                     keepAlive: false
                 }
             }]
-        }, {
+        }, 
+        {
+            path: '/home',
+            component: Home,
+            name: '附件管理',
+            children: [{
+                path: '/user',
+                iconCls: 'el-icon-picture',
+                name: '附件管理',
+                // component: attachmanage
+                component: UserMana
+            }]
+        }, 
+    
+        {
             path: '/home',
             component: Home,
             name: '用户管理',
@@ -81,7 +103,8 @@ export default new Router({
                 name: '用户管理',
                 component: UserMana
             }]
-        }, {
+        }, 
+        {
             path: '/home',
             component: Home,
             name: '栏目管理',
@@ -95,26 +118,14 @@ export default new Router({
         {
             path: '/home',
             component: Home,
-            name: '数据统计',
+            name: '博客设置',
             iconCls: 'fa fa-bar-chart',
             children: [{
                 path: '/charts',
-                iconCls: 'fa fa-bar-chart',
-                name: '数据统计',
+                iconCls: 'el-icon-setting',
+                name: '博客设置',
                 component: DataCharts
             }]
-        },
-        // {
-        //     path: '/home',
-        //     component: Home,
-        //     name: '博客设置',
-        //     iconCls: 'fa fa-bar-chart',
-        //     children: [{
-        //         path: '/charts',
-        //         // iconCls: 'fa fa-bar-chart',
-        //         name: '博客设置',
-        //         component: DataCharts
-        //     }]
-        // }
+        }
     ]
 })
