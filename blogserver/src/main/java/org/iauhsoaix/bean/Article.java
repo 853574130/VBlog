@@ -4,24 +4,69 @@ import java.sql.Timestamp;
 import java.util.List;
 
 /**
- * Edited by iauhsoaix on 2017/12/20.
+ * Edited by iauhsoaix on 2018/12/20.
  */
-public class Article {
+public class Article extends BaseInfo{
+    /**
+     * 文章编号
+     */
     private Long id;
+    /**
+     * 文章标题
+     */
     private String title;
+    /**
+     * 文章内容 Markdown格式
+     */
     private String mdContent;
+    /**
+     * 文章内容 html格式
+     */
     private String htmlContent;
+    /**
+     * 文章摘要
+     */
     private String summary;
+
     private Long cid;
+    /**
+     * 发表用户 多对一
+     */
     private Long uid;
+
     private Timestamp publishDate;
+    /**
+     * 0 已发布
+     * 1 草稿
+     * 2 回收站
+     */
     private Integer state;
+    /**
+     * 文章访问量
+     */
     private Integer pageView;
+
+    /**
+     * 是否允许评论
+     */
+    private Integer allowComment = 0;
+
     private Timestamp editTime;
+
+
     private String[] dynamicTags;
+
     private String nickname;
+    /**
+     * 分类名
+     */
     private String cateName;
+
+    /**
+     * 文章所属标签
+     */
     private List<Tags> tags;
+
     private String stateStr;
 
     public String getStateStr() {
@@ -72,9 +117,6 @@ public class Article {
         this.editTime = editTime;
     }
 
-    public Long getId() {
-        return id;
-    }
 
     public void setId(Long id) {
         this.id = id;

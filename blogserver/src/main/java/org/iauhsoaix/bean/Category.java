@@ -3,11 +3,20 @@ package org.iauhsoaix.bean;
 import java.sql.Timestamp;
 
 /**
- * Edited by iauhsoaix on 2017/12/19.
+ * Edited by iauhsoaix on 2018/12/19.
  */
-public class Category {
+public class Category extends BaseInfo {
+    /**
+     * 分类编号
+     */
     private Long id;
+
     private String cateName;
+    /**
+     * 分类描述
+     */
+    private String cateDesc;
+
     private Timestamp date;
 
     public Category() {

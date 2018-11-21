@@ -1,7 +1,7 @@
 package org.iauhsoaix.bean;
 
 /**
- * Edited by iauhsoaix on 2017/12/21.
+ * Edited by iauhsoaix on 2018/12/21.
  */
 public class Tags {
     private Long id;
