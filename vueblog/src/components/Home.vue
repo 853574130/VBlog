@@ -1,7 +1,8 @@
 <template>
   <el-container class="home_container">
     <el-header>
-      <div class="home_title">小帅的博客管理平台</div>
+      <div class="home_title">management</div>
+      <!-- 小帅的博客管理平台 -->
       <div class="header-right">
       <div class="header-user-con">
          <!-- 全屏显示 -->
@@ -33,6 +34,7 @@
             <el-dropdown-item command="MyArticle">我的文章</el-dropdown-item>
             <el-dropdown-item command="MyHome">个人主页</el-dropdown-item> -->
             <!-- 这个应该另外放个地方 -->
+            <el-dropdown-item command="editpersonalinfo">个人信息</el-dropdown-item>
             <el-dropdown-item command="editpassword">修改密码</el-dropdown-item>
             <el-dropdown-item command="logout" divided>退出登录</el-dropdown-item>
           </el-dropdown-menu>
@@ -41,12 +43,14 @@
       </div>
 
     </el-header>
+    <!--                                 header                              -->
     <el-container>
       <el-aside width="200px">
         <el-menu
           default-active="0"
-          class="el-menu-vertical-demo" style="background-color: #ECECEC" router>
+          class="el-menu-vertical-demo" style="background-color: #E0D0EC" router>
           <template v-for="(item,index) in this.$router.options.routes" v-if="!item.hidden">
+
             <el-submenu :index="index+''" v-if="item.children.length>1" :key="index">
               <template slot="title">
                 <i :class="item.iconCls"></i>
@@ -65,6 +69,9 @@
           </template>
         </el-menu>
       </el-aside>
+
+
+         <!--                                 aside                              -->
       <el-container>
         <el-main>
           <el-breadcrumb separator-class="el-icon-arrow-right">
@@ -75,7 +82,11 @@
             <router-view v-if="this.$route.meta.keepAlive"></router-view>
           </keep-alive>
           <router-view v-if="!this.$route.meta.keepAlive"></router-view>
+         
         </el-main>
+ <!--                                 main                              -->
+
+
       </el-container>
     </el-container>
   </el-container>

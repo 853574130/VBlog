@@ -9,6 +9,11 @@
       <el-button type="primary" icon="el-icon-search" size="small" style="margin-left: 3px" @click="searchClick">搜索
       </el-button>
     </div>
+
+
+    <el-button type="primary" icon="el-icon-refresh
+" size="small" style="margin-left: 3px;align:right;" @click="switchview">切换视图
+      </el-button>
     <div style="display: flex;justify-content: space-around;flex-wrap: wrap">
       <el-card style="width:330px;margin-top: 10px;" v-for="(user,index) in users" :key="index"
                v-loading="cardloading[index]">
@@ -90,6 +95,9 @@
       });
     },
     methods: {
+      switchview(){
+        // this.$router.push("/");
+      },
       saveRoles(id, index){
         var selRoles = this.roles;
         if (this.cpRoles.length == selRoles.length) {
