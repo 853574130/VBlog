@@ -116,6 +116,14 @@
             //取消
           })
         }
+        else if(command == 'editpersonalinfo'){
+          this.$router.push('/userinfo');
+
+        }
+        else if(command == 'editpassword'){
+          this.$router.push('/editpwd');
+        }
+        
       },
        // 全屏事件
             handleFullScreen(){

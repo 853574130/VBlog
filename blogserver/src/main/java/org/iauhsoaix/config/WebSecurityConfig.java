@@ -92,7 +92,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				// 其他的路径都是登录后即可访问
 				.and().formLogin()// 表单验证
 				.loginPage("/login_page")
-				// 登录页面为/login_page
+				/*登录页面为/login_page
+				formLogin
+public  FormLoginConfigurer < HttpSecurity > formLogin（）
+指定支持基于表单的身份验证。如果 FormLoginConfigurer.loginPage(String)未指定，则将生成默认登录页面。*/
+
 				.successHandler(new AuthenticationSuccessHandler() {
 					@Override
 					public void onAuthenticationSuccess(HttpServletRequest httpServletRequest,
@@ -116,7 +120,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 						out.close();
 					}
 				})
-				.loginProcessingUrl("/login")//自定义请求链接
+				.loginProcessingUrl("/login")
+				/*
+				* 指定用于验证凭据的URL。
+				* 验证用户名和密码的URL*/
 				.usernameParameter("username")
 				.passwordParameter("password").permitAll()//当访问到这个url不需要身份认证
 				.and()

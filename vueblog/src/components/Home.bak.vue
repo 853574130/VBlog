@@ -1,5 +1,6 @@
 <template>
-  <el-row class="container">
+  <!--     应该没用，予以删除
+    <el-row class="container">
     <el-col :span="12" class="header">
       <div class="title">blog管理平台</div>
     </el-col>
@@ -48,44 +49,44 @@
         </el-main>
       </el-container>
     </el-col>
-  </el-row>
+  </el-row> -->
 </template>
 <script>
-  export default{
-    methods: {
-      handleCommand(command){
-        var _this = this;
-        if (command == 'logout') {
-          this.$confirm('注销登录吗?', '提示', {
-            confirmButtonText: '确定',
-            cancelButtonText: '取消',
-            type: 'warning'
-          }).then(function () {
-            _this.$http.get("/logout");
-            _this.currentUserName = '游客';
-            _this.$router.replace({path: '/'});
-          }, function () {
-            //取消
-          })
-        }
-      }
-    },
-    mounted: function () {
-      this.$http.get("/currentUserName").then(function (msg) {
-        this.currentUserName = msg.bodyText;
-      }, function (msg) {
-        this.currentUserName = '游客';
-      });
-    },
-    data(){
-      return {
-        currentUserName: ''
-      }
-    }
-  }
+  // export default{
+  //   methods: {
+  //     handleCommand(command){
+  //       var _this = this;
+  //       if (command == 'logout') {
+  //         this.$confirm('注销登录吗?', '提示', {
+  //           confirmButtonText: '确定',
+  //           cancelButtonText: '取消',
+  //           type: 'warning'
+  //         }).then(function () {
+  //           _this.$http.get("/logout");
+  //           _this.currentUserName = '游客';
+  //           _this.$router.replace({path: '/'});
+  //         }, function () {
+  //           //取消
+  //         })
+  //       }
+  //     }
+  //   },
+  //   mounted: function () {
+  //     this.$http.get("/currentUserName").then(function (msg) {
+  //       this.currentUserName = msg.bodyText;
+  //     }, function (msg) {
+  //       this.currentUserName = '游客';
+  //     });
+  //   },
+  //   data(){
+  //     return {
+  //       currentUserName: ''
+  //     }
+  //   }
+  // }
 </script>
 <style>
-  .container {
+  /* .container {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -118,5 +119,5 @@
     justify-content: flex-end;
     height: 60px;
     margin-right: 20px;
-  }
+  } */
 </style>
