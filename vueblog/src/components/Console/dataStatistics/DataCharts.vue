@@ -18,8 +18,10 @@
   import 'echarts/lib/component/title'
   import 'echarts/theme/dark'
   import 'echarts/lib/chart/bar'
-
-  import {getRequest} from '../../utils/api'
+import { postRequest } from "../../../utils/api";
+import { putRequest } from "../../../utils/api";
+import { deleteRequest } from "../../../utils/api";
+import { getRequest } from "../../../utils/api";
   export default{
     components: {
       'chart': ECharts

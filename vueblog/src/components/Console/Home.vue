@@ -23,7 +23,7 @@
                     <span class="btn-bell-badge" v-if="message"></span>
                 </div>
         <!-- 用户头像 -->
-                <div class="user-avator"><img src="../../static/img/img2.jpg"></div>
+                <div class="user-avator"><img src="../../../static/img/img2.jpg"></div>
         <!-- 用户名下拉菜单 -->
         <el-dropdown @command="handleCommand">
   <span class="el-dropdown-link home_userinfo">
@@ -98,7 +98,7 @@
   </el-container>
 </template>
 <script>
-  import {getRequest} from '../utils/api'
+  import {getRequest} from '../../utils/api'
   export default{
     methods: {
       handleCommand(command){

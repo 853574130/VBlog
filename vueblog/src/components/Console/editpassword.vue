@@ -1,48 +1,40 @@
 <template>
   <el-container class="dashboard">
     <el-main class="main">
-        博客设置
+       
         <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-  <el-menu-item index="/blogsetting">常规设置</el-menu-item>
- <!-- <el-menu-item index="/" >评论设置</el-menu-item> -->
-  <el-menu-item index="/stylesetting" >博客样式</el-menu-item>
-</el-menu>
+  <el-menu-item index="/userinfo">基本资料</el-menu-item>
 
+  <el-menu-item index="/editpwd" >密码修改</el-menu-item>
+</el-menu>
 <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
 
-<!-- <el-form-item label="博客标题:" prop="title">
-    <el-input  v-model="ruleForm.title"></el-input>
+<el-form-item label="原密码:" prop="oldpwd">
+    <el-input type="password" v-model="ruleForm.oldpwd"></el-input>
   </el-form-item>
 
-  <el-form-item label="博客地址:" prop="blogaddress">
-    <el-input  v-model="ruleForm.blogaddress"></el-input>
+  <el-form-item label="新密码:" prop="newpwed">
+    <el-input type="password" v-model="ruleForm.newpwed"></el-input>
   </el-form-item>
-   这暂时还不知道是干嘛的 -->
 
-   <el-form-item label="博客LOGO:" prop="blogo">
-    <el-input  v-model="ruleForm.blogo"></el-input>
+   <el-form-item label="确认新密码:" prop="verify">
+    <el-input type="password" v-model="ruleForm.verify"></el-input>
   </el-form-item>
-  <el-form-item label="favicon:" prop="favicon">
-    <el-input  v-model="ruleForm.favicon"></el-input>
-  </el-form-item> -->
-
   <el-form-item>
     <el-button type="primary" @click="submitForm('ruleForm')">确认</el-button>
     <el-button @click="goback()">取消</el-button>
   </el-form-item>
 </el-form>
-
-
     </el-main>
   </el-container>
 </template>
 <script>
-import BlogTable from "@/components/BlogTable";
-import BlogCfg from "@/components/BlogCfg";
-import { postRequest } from "../../utils/api";
-import { putRequest } from "../../utils/api";
-import { deleteRequest } from "../../utils/api";
-import { getRequest } from "../../utils/api";
+import BlogTable from "@/components/Console/BlogTable";
+import BlogCfg from "@/components/Console/BlogCfg";
+ import {postRequest} from '../../utils/api'
+  import {putRequest} from '../../utils/api'
+  import {deleteRequest} from '../../utils/api'
+  import {getRequest} from '../../utils/api'
 export default {
   mounted: function() {
     var _this = this;
@@ -54,23 +46,31 @@ export default {
   },
   data() {
     return {
-      activeName: "post",
       isAdmin: false,
       ruleForm: {
-        title: "",
-        blogaddress: "",
-        blogo: "",
-        title: ""
+        oldpwd: "",
+        newpwed: "",
+        verify: ""
+      },
+      rules: {
+        name: [
+          { required: true, message: "请输入用户名", trigger: "blur" },
+          { min: 2, max: 10, message: "长度在 2 到 10 个字符", trigger: "blur" }
+        ],
+        describe: [
+          { required: false, message: "请填写活动形式", trigger: "blur" }
+        ]
       }
     };
   },
   methods: {
     submitForm() {},
+    goback() {},
     handleSelect(key, keyPath) {
-                this.$router.push({
-                    path: key,
-                });
-            },
+      this.$router.push({
+        path: key
+      });
+    },
     handleClick(tab, event) {
       //        console.log(tab, event);
     }

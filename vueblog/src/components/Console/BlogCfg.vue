@@ -18,8 +18,8 @@
   </el-card>
 </template>
 <script>
-  import {getRequest} from '../utils/api'
-  import {putRequest} from '../utils/api'
+  import {getRequest} from '../../utils/api'
+  import {putRequest} from '../../utils/api'
   export default{
     data(){
       return {

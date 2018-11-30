@@ -28,7 +28,10 @@
   </el-row>
 </template>
 <script>
-  import {getRequest} from '../utils/api'
+ import {postRequest} from '../../utils/api'
+  import {putRequest} from '../../utils/api'
+  import {deleteRequest} from '../../utils/api'
+  import {getRequest} from '../../utils/api'
   export default{
     methods: {
       goBack(){

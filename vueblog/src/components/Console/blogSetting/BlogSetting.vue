@@ -37,12 +37,12 @@
   </el-container>
 </template>
 <script>
-  import BlogTable from '@/components/BlogTable'
-  import BlogCfg from '@/components/BlogCfg'
-  import {postRequest} from '../../utils/api'
-  import {putRequest} from '../../utils/api'
-  import {deleteRequest} from '../../utils/api'
-  import {getRequest} from '../../utils/api'
+  import BlogTable from '@/components/Console/BlogTable'
+  import BlogCfg from '@/components/Console/BlogCfg'
+  import {postRequest} from '../../../utils/api'
+  import {putRequest} from '../../../utils/api'
+  import {deleteRequest} from '../../../utils/api'
+  import {getRequest} from '../../../utils/api'
   export default {
     mounted: function () {
       var _this = this;

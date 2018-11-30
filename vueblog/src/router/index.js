@@ -1,27 +1,34 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '@/components/Login'
-import Home from '@/components/Home'
-import ArticleList from '@/components/Article/ArticleList'
-import CateMana from '@/components/CateMana'
-// import DataCharts from '@/components/dataStatistics/DataCharts'
-import DataCharts from '../components/dataStatistics/DataCharts'
-import dashboard from '../components/dataStatistics/dashboard'
-import Attach from '../components/Attach'
-// import dashboard from '../components/dashboard'
-import PostArticle from '@/components/Article/PostArticle'
-import UserMana from '@/components/usermanager/UserMana'
-import BlogDetail from '@/components/BlogDetail'
-import UserInfo from '@/components/UserInfo'
-import editpwd from '@/components/editpassword'
-import BlogSetting from '../components/blogSetting/BlogSetting'
-import stylesetting from '../components/blogSetting/stylesetting'
+import Login from '@/components/Console/Login'
+import Home from '@/components/Console/Home'
+import ArticleList from '@/components/Console/Article/ArticleList'
+import CateMana from '@/components/Console/CateMana'
+// import DataCharts from '@/components/Console/dataStatistics/DataCharts'
+import DataCharts from '../components/Console/dataStatistics/DataCharts'
+import dashboard from '../components/Console/dataStatistics/dashboard'
+import Attach from '../components/Console/Attach'
+// import dashboard from '../components/Console/dashboard'
+import PostArticle from '@/components/Console/Article/PostArticle'
+import UserMana from '@/components/Console/usermanager/UserMana'
+import BlogDetail from '@/components/Console/BlogDetail'
+import UserInfo from '@/components/Console/UserInfo'
+import editpwd from '@/components/Console/editpassword'
+import Main from '@/components/Visitor/Main'
+import BlogSetting from '../components/Console/blogSetting/BlogSetting'
+import stylesetting from '../components/Console/blogSetting/stylesetting'
 
 Vue.use(Router)
 
 export default new Router({
     routes: [{
             path: '/',
+            name: '首页测试',
+            hidden: true,
+            component: Main
+        },
+        {
+            path: '/login',
             name: '登录',
             hidden: true,
             component: Login
