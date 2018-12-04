@@ -17,6 +17,9 @@ import editpwd from '@/components/Console/editpassword'
 import Main from '@/components/Visitor/Main'
 import BlogSetting from '../components/Console/blogSetting/BlogSetting'
 import stylesetting from '../components/Console/blogSetting/stylesetting'
+import blog from '../components/Visitor/page/blog'
+import index from '../components/Visitor/page/index'
+import main from '../components/Visitor/Main'
 
 Vue.use(Router)
 
@@ -168,5 +171,67 @@ export default new Router({
 
             }]
         },
+        // -------------------下面的是游客的路由---------------------------
+        {
+            path: '/main',
+            component: main,
+            children: [{
+                path: '/about',
+                component: (resolve) => {
+                    require(['../components/Visitor/page/about.vue'], resolve);
+                }
+            }],
+            hidden: true,
+        },
+        {
+            path: '/main',
+            component: main,
+            children: [{
+                path: '/index',
+                component: (resolve) => {
+                    require(['../components/Visitor/page/index.vue'], resolve);
+                }
+            }],
+            hidden: true,
+        },
+        {
+            path: '/main',
+            component: main,
+            children: [{
+                path: '/blog',
+                component: blog,
+            }],
+            hidden: true,
+        },
+        {
+            path: '/detail/:id',
+            name: 'detail',
+            component: (resolve) => {
+                require(["../components/Visitor/page/detail.vue"], resolve);
+            }
+        },
+        // {
+        //     path: '/shot',
+        //     name: 'shot',
+        //     component: (resolve) => {
+        //         require(['../components/Visitor/page/shot.vue'], resolve);
+        //     }
+        // },
+        // {
+        //     path: '/tools',
+        //     name: 'tools',
+        //     component: (resolve) => {
+        //         require(['../components/Visitor/page/tools.vue'], resolve);
+        //     }
+        // },
+
+        //这个播放器暂时用不到的话就先不写了，避免浪费时间解决很多小问题
+        // {    
+        //     path: '/freevideo',
+        //     name: 'freevideo',
+        //     component: (resolve) => {
+        //         require(['../components/Visitor/page/freevideo.vue'], resolve);
+        //     }
+        // },
     ]
 })

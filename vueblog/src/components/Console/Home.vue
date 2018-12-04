@@ -34,6 +34,8 @@
             <el-dropdown-item command="MyArticle">我的文章</el-dropdown-item>
             <el-dropdown-item command="MyHome">个人主页</el-dropdown-item> -->
             <!-- 这个应该另外放个地方 -->
+
+            <!-- 这里要判断一下 如果是未登录状态，这里显示的就应该是登录按钮 -->
             <el-dropdown-item command="editpersonalinfo">个人信息</el-dropdown-item>
             <el-dropdown-item command="editpassword">修改密码</el-dropdown-item>
             <el-dropdown-item command="logout" divided>退出登录</el-dropdown-item>
@@ -75,8 +77,6 @@
           
         </el-menu>
       </el-aside>
-
-
          <!--                                 aside                              -->
       <el-container>
         <el-main>

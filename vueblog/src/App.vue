@@ -1,8 +1,10 @@
 <template>
-  <div id="app" style="background-color: rgba(235, 235, 235, 0.08)">
+  <div id="app" >
+    <!-- <h1>TEST</h1> -->
     <router-view/>
   </div>
 </template>
+
 
 <script>
 export default {
