@@ -29,6 +29,9 @@
   <span class="el-dropdown-link home_userinfo">
     {{currentUserName}}<i class="el-icon-arrow-down el-icon--right home_userinfo"></i>
   </span>
+    <!-- <el-dropdown-menu slot="dropdown">
+      <el-dropdown-item command="login">登录</el-dropdown-item>
+      </el-dropdown> -->
           <el-dropdown-menu slot="dropdown">
             <!-- <el-dropdown-item command="sysMsg">系统消息</el-dropdown-item>
             <el-dropdown-item command="MyArticle">我的文章</el-dropdown-item>
@@ -36,6 +39,7 @@
             <!-- 这个应该另外放个地方 -->
 
             <!-- 这里要判断一下 如果是未登录状态，这里显示的就应该是登录按钮 -->
+            <el-dropdown-item command="login">登录</el-dropdown-item>
             <el-dropdown-item command="editpersonalinfo">个人信息</el-dropdown-item>
             <el-dropdown-item command="editpassword">修改密码</el-dropdown-item>
             <el-dropdown-item command="logout" divided>退出登录</el-dropdown-item>
@@ -123,6 +127,9 @@
         else if(command == 'editpassword'){
           this.$router.push('/editpwd');
         }
+         else if(command == 'login'){
+          this.$router.push('/login');
+        }
         
       },
        // 全屏事件
@@ -154,7 +161,7 @@
             }
     },
     created(){
-      console.log("this.$router.options.routes",this.$router.options.routes);
+      // console.log("this.$router.options.routes",this.$router.options.routes);
     },
     mounted: function () {
       // this.$alert('为了确保所有的小伙伴都能看到完整的数据演示，数据库只开放了查询权限和部分字段的更新权限，其他权限都不具备，完整权限的演示需要大家在自己本地部署后，换一个正常的数据库用户后即可查看，这点请大家悉知!', '友情提示', {

@@ -4,6 +4,8 @@ import org.apache.commons.io.IOUtils;
 import org.iauhsoaix.bean.Article;
 import org.iauhsoaix.bean.RespBean;
 import org.iauhsoaix.service.ArticleService;
+import org.iauhsoaix.utils.Constant;
+import org.iauhsoaix.utils.ConstantI;
 import org.iauhsoaix.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +36,7 @@ public class ArticleController {
         if (result == 1) {
             return new RespBean("success", article.getId() + "");
         } else {
-            return new RespBean("error", article.getState() == 0 ? "文章保存失败!" : "文章发表失败!");
+            return new RespBean("error", article.getStatus() == 0 ? "文章保存失败!" : "文章发表失败!");
         }
     }
 
@@ -69,9 +71,15 @@ public class ArticleController {
         }
         return new RespBean("error", "上传失败!");
     }
-
+     /**
+       * @Author:iauhsoaix
+       * @date 2018/12/5
+       * @Description:这个方法后期要废弃
+       */
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public Map<String, Object> getArticleByState(@RequestParam(value = "state", defaultValue = "-1") Integer state, @RequestParam(value = "page", defaultValue = "1") Integer page, @RequestParam(value = "count", defaultValue = "6") Integer count,String keywords) {
+    public Map<String, Object> getArticleByState(@RequestParam(value = "state", defaultValue = "-1") Integer state,
+                                                 @RequestParam(value = "page", defaultValue = "1") Integer page,
+                                                 @RequestParam(value = "count", defaultValue = "6") Integer count,String keywords) {
         int totalCount = articleService.getArticleCountByState(state, Util.getCurrentUser().getId(),keywords);
         List<Article> articles = articleService.getArticleByState(state, page, count,keywords);
         Map<String, Object> map = new HashMap<>();
@@ -79,6 +87,24 @@ public class ArticleController {
         map.put("articles", articles);
         return map;
     }
+    /**
+     * @Author:iauhsoaix
+     * @date 2018/12/5
+     * @Description:
+     */
+    @RequestMapping(value = "/publicArticle", method = RequestMethod.GET)
+    public Map<String, Object> getPublicArticle(
+                                                @RequestParam(value = "username", defaultValue = "-1") String username,
+                                                 @RequestParam(value = "page", defaultValue = "1") Integer page,
+                                                 @RequestParam(value = "count", defaultValue = "6") Integer count,String keywords) {
+        int totalCount = articleService.getArticleCountByState(Constant.DEFAULT_STATUS, Util.getCurrentUser().getId(),keywords);
+        List<Article> articles = articleService.getArticleByState(Constant.DEFAULT_STATUS, page, count,keywords);
+        Map<String, Object> map = new HashMap<>();
+        map.put("totalCount", totalCount);
+        map.put("articles", articles);
+        return map;
+    }
+
 
     @RequestMapping(value = "/{aid}", method = RequestMethod.GET)
     public Article getArticleById(@PathVariable Long aid) {

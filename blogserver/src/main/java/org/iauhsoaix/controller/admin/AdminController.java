@@ -21,7 +21,11 @@ import java.util.Map;
 public class AdminController {
     @Autowired
     ArticleService articleService;
-
+     /** 
+       * @Author:iauhsoaix   
+       * @date 2018/12/5 
+       * @Description: 
+       */
     @RequestMapping(value = "/article/all", method = RequestMethod.GET)
     public Map<String, Object> getArticleByStateByAdmin(@RequestParam(value = "page", defaultValue = "1") Integer page, @RequestParam(value = "count", defaultValue = "6") Integer count, String keywords) {
         List<Article> articles = articleService.getArticleByState(-2, page, count, keywords);

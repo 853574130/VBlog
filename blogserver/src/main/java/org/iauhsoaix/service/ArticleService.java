@@ -33,7 +33,7 @@ public class ArticleService {
         if (article.getId() == -1) {
             //添加操作
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-            if (article.getState() == 1) {
+            if (article.getStatus() == 1) {
                 //设置发表日期
                 article.setPublishDate(timestamp);
             }
@@ -52,7 +52,7 @@ public class ArticleService {
             return i;
         } else {
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-            if (article.getState() == 1) {
+            if (article.getStatus() == 1) {
                 //设置发表日期
                 article.setPublishDate(timestamp);
             }
@@ -89,7 +89,11 @@ public class ArticleService {
         content = content.replaceAll("\\<.*?>", "");
         return content;
     }
-
+ /** 这个方法不好，私密的文章也能查出来，只是前端不显示
+   * @Author:iauhsoaix
+   * @date 2018/12/5
+   * @Description:
+   */
     public List<Article> getArticleByState(Integer state, Integer page, Integer count,String keywords) {
         int start = (page - 1) * count;
         Long uid = Util.getCurrentUser().getId();

@@ -36,12 +36,6 @@ public class Article extends BaseInfo{
 
     private Timestamp publishDate;
     /**
-     * 0 已发布
-     * 1 草稿
-     * 2 回收站
-     */
-    private Integer state;
-    /**
      * 文章访问量
      */
     private Integer pageView;
@@ -117,11 +111,6 @@ public class Article extends BaseInfo{
         this.editTime = editTime;
     }
 
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -176,14 +165,6 @@ public class Article extends BaseInfo{
 
     public void setPublishDate(Timestamp publishDate) {
         this.publishDate = publishDate;
-    }
-
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
     }
 
     public Integer getPageView() {

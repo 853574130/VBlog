@@ -10,7 +10,7 @@
           <li v-for="(item,index) in articleinfos" :key="index">
 
 
-             <router-link :to="{ name:'detail',params:{ id:item.number } }" target="_blank" >
+             <router-link :to="{ name:'detail',params:{ id:item.number } }" >
 
               <div class="article-img-inner">
                 <img  src="../../../../static/img/article1.jpg">
@@ -88,6 +88,7 @@
   import dayjs from 'dayjs'
   import loading from '../components/loading'
   import pagination from '../components/pagination'
+  import {getRequest} from '../../../utils/api'
 
   export default {
     name: "articleList",
@@ -101,18 +102,20 @@
         articleinfos:[{
           title:"白夜行",
           describe:"东野圭吾",
-          updateTime:'2018/12/3'
+          updateTime:'2018/12/3',
+          number:1
         },
         {
           title:"白夜行",
           describe:"东野圭吾",
-          updateTime:'2018/12/3'
+          updateTime:'2018/12/3',
+          number:2
         },
         ],
       }
     },
     mounted() {
-      // this.requestData(this.currentPage);
+      this.requestData(this.currentPage);
     },
     watch: {
       //currentPage改变执行requestData
@@ -125,14 +128,20 @@
       // getdata(){
       //   this.list.push(this.articleinfo);
       // },
-      // requestData(currentPage) {
-      //   // 在这里使用ajax或者fetch将对应页传过去获取数据即可
-      //   let url = 'https://api.github.com/repos/853574130/gitblog/issues';
-      //   let per_page = 4;//每页4条数据
-      //   let filter = 'created';
-      //   let sort = 'updated';
-      //   this.pageNo = Math.ceil(articleinfos.length / 4) 
-      // }
+      /**
+       * 这里的请求是无条件放行的
+       * 要根据什么条件来确定我访问的是谁的博客呢？
+       * 根据username吧
+       * 给列表传个username的参数
+       */
+      requestData(currentPage) {
+      // let url = "/article/all?state=" + this.state + "&page=" + page + "&count=" + count + "&keywords=" + this.keywords;
+      // getRequest(url).then(resp=> {
+      //   if (resp.status == 200) {
+
+      //   }
+      // } );
+      }
     },
     computed: {
       // getMainImage() {
@@ -146,22 +155,7 @@
       //   }
       //   return arr;
       // },
-      getMainDes() {
-        let arr = [];
-        for (let item of this.articleinfos) {
-          arr.push(item.describe);
-          // arr.push(marked(item.body, {sanitize: true}).replace(/<[^>]+>/g, "").substring(0, 200));
-        }
-        return arr;
-      },
-      getTime() {
-        let arr = [];
-        for (let item of this.list) {
-          arr.push(item.updateTime);
-          // arr.push(friendlytimejs.FriendlyTime(dayjs(item.updated_at).add(8, "hour").format('YYYY-MM-DD HH:mm:ss'), dayjs()));
-        }
-        return arr;
-      }
+  
     },
     components: {
       loading,

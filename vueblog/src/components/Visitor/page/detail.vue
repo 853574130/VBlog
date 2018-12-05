@@ -1,6 +1,5 @@
 <template>
   <div id="detail" v-cloak v-title :data-title="content.title">
-    <h1>细节测试</h1>
     <!-- <transition name="slide-fade">
       <loading v-if="loading"></loading>
       <div v-else class="layer">
@@ -52,8 +51,9 @@
         </div>
       </div>
     </transition> -->
-
+  <h1>文章细节</h1>
   </div>
+
 </template>
 
 <script>

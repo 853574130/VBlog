@@ -141,6 +141,9 @@
           _this.loading = false;
           if (resp.status == 200) {
             _this.articles = resp.data.articles;
+            console.log("resp",resp);
+            // console.log("_this.articles",_this.articles);
+            
             _this.totalCount = resp.data.totalCount;
           } else {
             _this.$message({type: 'error', message: '数据加载失败!'});

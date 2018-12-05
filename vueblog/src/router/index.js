@@ -204,11 +204,17 @@ export default new Router({
             hidden: true,
         },
         {
-            path: '/detail/:id',
-            name: 'detail',
-            component: (resolve) => {
-                require(["../components/Visitor/page/detail.vue"], resolve);
-            }
+            path: '/main',
+            component: main,
+            children: [{
+                path: '/detail/:id',
+                name: 'detail',
+                component: (resolve) => {
+                    require(["../components/Visitor/page/detail.vue"], resolve);
+                }
+            }],
+            hidden: true,
+
         },
         // {
         //     path: '/shot',
