@@ -69,6 +69,7 @@
       <el-button type="danger" size="mini" style="margin: 0px;" v-show="this.articles.length>0 && showDelete"
                  :disabled="this.selItems.length==0" @click="deleteMany">批量删除
       </el-button>
+      <el-button @click="sendrequest">发送请求</el-button>
       <span></span>
       <el-pagination
         background
@@ -209,8 +210,20 @@
           });
           _this.dustbinData = []
         });
+      },
+
+       sendrequest(currentPage) {
+        let url = "/article/publicArticle";
+// let url ="/admin/category/all";
+      getRequest(url).then(resp=> {
+        console.log("resp",resp);
+        if (resp.status == 200) {
+        }
+      } );
+
       }
     },
+    
     props: ['state', 'showEdit', 'showDelete', 'activeName']
   }
 </script>

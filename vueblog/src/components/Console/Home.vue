@@ -115,7 +115,7 @@
           }).then(function () {
             getRequest("/logout")
             _this.currentUserName = '游客';
-            _this.$router.replace({path: '/'});
+            _this.$router.replace({path: '/index'});
           }, function () {
             //取消
           })

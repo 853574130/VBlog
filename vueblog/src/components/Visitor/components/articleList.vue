@@ -46,7 +46,7 @@
          </li>
         </ul>
 
-
+      <el-button @click="requestData(1)">发送请求</el-button>
         <pagination :page-no="pageNo" :current.sync="currentPage"></pagination>
 
 
@@ -115,7 +115,7 @@
       }
     },
     mounted() {
-      this.requestData(this.currentPage);
+      // this.requestData(this.currentPage);
     },
     watch: {
       //currentPage改变执行requestData
@@ -135,12 +135,14 @@
        * 给列表传个username的参数
        */
       requestData(currentPage) {
-      // let url = "/article/all?state=" + this.state + "&page=" + page + "&count=" + count + "&keywords=" + this.keywords;
-      // getRequest(url).then(resp=> {
-      //   if (resp.status == 200) {
+        // let url = "/article/publicArticle";
+let url ="/admin/category/all";
+      getRequest(url).then(resp=> {
+        console.log("resp",resp);
+        if (resp.status == 200) {
+        }
+      } );
 
-      //   }
-      // } );
       }
     },
     computed: {
