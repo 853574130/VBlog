@@ -2,8 +2,8 @@ package org.iauhsoaix.service;
 
 import org.iauhsoaix.bean.Role;
 import org.iauhsoaix.bean.User;
-import org.iauhsoaix.mapper.RolesMapper;
-import org.iauhsoaix.mapper.UserMapper;
+import org.iauhsoaix.dal.mapper.RolesMapper;
+import org.iauhsoaix.dal.mapper.UserMapper;
 import org.iauhsoaix.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

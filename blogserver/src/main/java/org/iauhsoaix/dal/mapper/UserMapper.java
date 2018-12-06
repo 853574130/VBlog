@@ -1,4 +1,4 @@
-package org.iauhsoaix.mapper;
+package org.iauhsoaix.dal.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

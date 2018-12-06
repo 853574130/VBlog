@@ -84,7 +84,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		 */
 		http.authorizeRequests()
 		.antMatchers("/admin/category/all").authenticated()
-//                .antMatchers("/").authenticated()
+                .antMatchers("/article/publicArticle").authenticated()
 		//表示该路径不需要身份认证
 		.antMatchers("/admin/**", "/reg")
 				.hasRole("超级管理员")

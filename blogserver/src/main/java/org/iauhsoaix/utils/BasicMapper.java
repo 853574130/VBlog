@@ -1,4 +1,4 @@
-package com.ecms.common;
+package org.iauhsoaix.utils;
 
 import tk.mybatis.mapper.common.ConditionMapper;
 import tk.mybatis.mapper.common.Mapper;

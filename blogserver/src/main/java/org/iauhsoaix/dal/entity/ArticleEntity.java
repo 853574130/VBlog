@@ -1,4 +1,4 @@
 package org.iauhsoaix.dal.entity;
 
-public class ArticleEntity {
+public class ArticleEntity extends AbstractEntity {
 }

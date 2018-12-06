@@ -1,7 +1,7 @@
 package org.iauhsoaix.service;
 
 import org.iauhsoaix.bean.Category;
-import org.iauhsoaix.mapper.CategoryMapper;
+import org.iauhsoaix.dal.mapper.CategoryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

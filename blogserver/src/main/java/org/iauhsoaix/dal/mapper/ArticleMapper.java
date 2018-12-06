@@ -1,8 +1,10 @@
-package org.iauhsoaix.mapper;
+package org.iauhsoaix.dal.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.iauhsoaix.bean.Article;
+import org.iauhsoaix.dal.entity.ArticleEntity;
+import org.iauhsoaix.utils.BasicMapper;
 
 import java.util.List;
 
@@ -10,7 +12,7 @@ import java.util.List;
  * Edited by iauhsoaix on 2017/12/20.
  */
 @Mapper
-public interface ArticleMapper {
+public interface ArticleMapper extends BasicMapper<ArticleEntity> {
     int addNewArticle(Article article);
 
     int updateArticle(Article article);

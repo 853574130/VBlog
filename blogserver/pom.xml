@@ -9,7 +9,7 @@
 	<packaging>war</packaging>
 
 	<name>blogserver</name>
-	<description>Vue博客服务端</description>
+	<description>博客服务端</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -57,6 +57,19 @@
 			<artifactId>druid</artifactId>
 			<version>1.0.29</version>
 		</dependency>
+		<dependency>
+			<groupId>tk.mybatis</groupId>
+			<artifactId>mapper-spring-boot-starter</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+
+
+
 		<dependency>
 			<groupId>aopalliance</groupId>
 			<artifactId>aopalliance</artifactId>

@@ -1,10 +1,14 @@
-package com.ecms.dal.entity;
+package org.iauhsoaix.dal.entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
-
+ /**
+   * @Author:iauhsoaix
+   * @date 2018/12/6
+   * @Description: 这里还要把状态加进来
+   */
 public abstract class AbstractEntity extends Object implements Serializable {
 
     private static final long serialVersionUID = 1L;

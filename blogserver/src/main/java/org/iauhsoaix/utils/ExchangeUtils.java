@@ -1,7 +1,9 @@
-package com.ecms.utils;
+package org.iauhsoaix.utils;
 
-import com.ecms.dal.entity.AbstractEntity;
-import org.apache.commons.lang3.StringUtils;
+
+
+import org.apache.commons.lang.StringUtils;
+import org.iauhsoaix.dal.entity.AbstractEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -71,7 +73,7 @@ public class ExchangeUtils {
 	}
 
 	public static List<Integer> getIdList(List<? extends AbstractEntity> list) {
-		return list.stream().map(AbstractEntity :: getId).collect(Collectors.toList());
+		return list.stream().map(AbstractEntity:: getId).collect(Collectors.toList());
 	}
 
 }

@@ -1,21 +1,18 @@
-package com.ecms.manager;
+package org.iauhsoaix.manager;
 
-import com.ecms.common.BasicMapper;
-import com.ecms.common.BusinessConstants;
-import com.ecms.dal.entity.AbstractEntity;
-import com.github.pagehelper.page.PageMethod;
 
+import org.iauhsoaix.dal.entity.AbstractEntity;
+import org.iauhsoaix.utils.BasicMapper;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.entity.Condition;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
-
 import java.util.Date;
 import java.util.List;
 
 @Component
-public abstract class BaseManager<E extends AbstractEntity> implements BusinessConstants {
+public abstract class BaseManager<E extends AbstractEntity>{
 
 	@Resource
 	protected abstract BasicMapper<E> getMapper();
@@ -33,7 +30,7 @@ public abstract class BaseManager<E extends AbstractEntity> implements BusinessC
 	}
 
 	public List<E> getListBy(int pageNum, int pageSize, E entity) {
-		PageMethod.startPage(pageNum, pageSize);
+//		PageMethod.startPage(pageNum, pageSize);//应该是要分页插件
 		return getMapper().select(entity);
 	}
 
@@ -42,7 +39,7 @@ public abstract class BaseManager<E extends AbstractEntity> implements BusinessC
 	}
 
 	public List<E> getByCondition(int pageNum, int pageSize, Condition condition) {
-		PageMethod.startPage(pageNum, pageSize);
+//		PageMethod.startPage(pageNum, pageSize);
 		return getMapper().selectByCondition(condition);
 	}
 

@@ -93,16 +93,16 @@ public class ArticleController {
      * @Description:
      */
     @RequestMapping(value = "/publicArticle", method = RequestMethod.GET)
-    public Map<String, Object> getPublicArticle(
-                                                @RequestParam(value = "username", defaultValue = "-1") String username,
-                                                 @RequestParam(value = "page", defaultValue = "1") Integer page,
-                                                 @RequestParam(value = "count", defaultValue = "6") Integer count,String keywords) {
-        int totalCount = articleService.getArticleCountByState(Constant.DEFAULT_STATUS, Util.getCurrentUser().getId(),keywords);
-        List<Article> articles = articleService.getArticleByState(Constant.DEFAULT_STATUS, page, count,keywords);
-        Map<String, Object> map = new HashMap<>();
-        map.put("totalCount", totalCount);
-        map.put("articles", articles);
-        return map;
+    public List<Article> getPublicArticle(
+                                                 ) {
+        /*@RequestParam(value = "username", defaultValue = "") String username,
+                                          @RequestParam(value = "page", defaultValue = "1") Integer page
+                                                 */
+        //@RequestParam(value = "count", defaultValue = "6") Integer count,String keywords  这也不知道啥参数  先放着吧
+
+        Article searchatricle=new Article();
+        List<Article> articleList=articleService.getListBy(searchatricle);
+        return articleList;
     }
 
 

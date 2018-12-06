@@ -1,15 +1,18 @@
 package org.iauhsoaix.service;
 
 import org.iauhsoaix.bean.Article;
-import org.iauhsoaix.mapper.ArticleMapper;
-import org.iauhsoaix.mapper.TagsMapper;
+import org.iauhsoaix.dal.entity.ArticleEntity;
+import org.iauhsoaix.dal.mapper.ArticleMapper;
+import org.iauhsoaix.dal.mapper.TagsMapper;
+import org.iauhsoaix.manager.ArticleManager;
+import org.iauhsoaix.manager.BaseManager;
 import org.iauhsoaix.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,11 +20,18 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class ArticleService {
+public class ArticleService extends BaseService<ArticleEntity, Article> {
     @Autowired
     ArticleMapper articleMapper;
     @Autowired
     TagsMapper tagsMapper;
+    @Resource
+    ArticleManager articleManager;
+
+    @Override
+    protected BaseManager<ArticleEntity> getManager() {
+        return articleManager;
+    }
 
     public int addNewArticle(Article article) {
         //处理文章摘要
@@ -142,4 +152,6 @@ public class ArticleService {
     public List<Integer> getDataStatistics() {
         return articleMapper.getDataStatistics(Util.getCurrentUser().getId());
     }
+
+
 }
