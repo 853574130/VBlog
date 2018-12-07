@@ -214,7 +214,7 @@
 
        sendrequest(currentPage) {
         let url = "/article/publicArticle";
-// let url ="/admin/category/all";
+        // let url ="/admin/category/all";
       getRequest(url).then(resp=> {
         console.log("resp",resp);
         if (resp.status == 200) {
