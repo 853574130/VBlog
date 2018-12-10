@@ -1,4 +1,4 @@
-package org.iauhsoaix.bean;
+package org.iauhsoaix.oldbean;
 
 /**
  * Edited by iauhsoaix on 2018/12/21.

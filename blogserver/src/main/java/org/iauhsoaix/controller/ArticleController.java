@@ -1,11 +1,9 @@
 package org.iauhsoaix.controller;
 
 import org.apache.commons.io.IOUtils;
-import org.iauhsoaix.bean.Article;
-import org.iauhsoaix.bean.RespBean;
+import org.iauhsoaix.oldbean.Article;
+import org.iauhsoaix.oldbean.RespBean;
 import org.iauhsoaix.service.ArticleService;
-import org.iauhsoaix.utils.Constant;
-import org.iauhsoaix.utils.ConstantI;
 import org.iauhsoaix.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -86,23 +84,6 @@ public class ArticleController {
         map.put("totalCount", totalCount);
         map.put("articles", articles);
         return map;
-    }
-    /**
-     * @Author:iauhsoaix
-     * @date 2018/12/5
-     * @Description:
-     */
-    @RequestMapping(value = "/publicArticle", method = RequestMethod.GET)
-    public List<Article> getPublicArticle(
-                                                 ) {
-        /*@RequestParam(value = "username", defaultValue = "") String username,
-                                          @RequestParam(value = "page", defaultValue = "1") Integer page
-                                                 */
-        //@RequestParam(value = "count", defaultValue = "6") Integer count,String keywords  这也不知道啥参数  先放着吧
-
-        Article searchatricle=new Article();
-        List<Article> articleList=articleService.getListBy(searchatricle);
-        return articleList;
     }
 
 

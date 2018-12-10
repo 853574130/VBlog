@@ -1,114 +1,100 @@
-package org.iauhsoaix.dal.entity;
+package org.iauhsoaix.test;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
 import java.util.Date;
-@Table(name = "article")
-public class ArticleEntity extends AbstractEntity {
-//    private Integer id;
+
+public class article {
+    /**
+     * 
+     */
+    private Integer id;
 
     /**
-     *
+     * 
      */
-    @Column(name = "title")
     private String title;
 
     /**
-     *
-     */
-    @Column(name = "cid")
-    private Integer cid;
-
-    /**
-     *
-     */
-    @Column(name = "uid")
-    private Long uid;
-
-    /**
-     *
-     */
-    @Column(name = "publishdate")
-    private Date publishdate;
-    /**
      * md文件源码
      */
-    @Column(name = "mdcontent")
     private String mdcontent;
 
     /**
      * html源码
      */
-    @Column(name = "htmlcontent")
     private String htmlcontent;
 
     /**
-     *
+     * 
      */
-    @Column(name = "summary")
     private String summary;
 
     /**
-     *
+     * 
      */
-    @Column(name = "edittime")
+    private Integer cid;
+
+    /**
+     * 
+     */
+    private Integer uid;
+
+    /**
+     * 
+     */
+    private Date publishdate;
+
+    /**
+     * 
+     */
     private Date edittime;
 
     /**
      * 0表示草稿箱，1表示已发表，2表示已删除
      */
-    @Column(name = "state")
     private Integer state;
 
     /**
-     *
+     * 
      */
-    @Column(name = "pageview")
     private Integer pageview;
 
-//    /**
-//     *
-//     * @return id
-//     */
-//    public Integer getId() {
-//        return id;
-//    }
-//
-//    /**
-//     *
-//     * @param id
-//     */
-//    public void setId(Integer id) {
-//        this.id = id;
-//    }
+    /**
+     * 
+     */
+    private Date created;
 
     /**
-     *
-     * @return title
+     * 
+     */
+    private Date updated;
+
+    /**
+     * 
+     * @return id 
      */
     public Integer getId() {
         return id;
     }
 
     /**
-     *
-     * @param id
+     * 
+     * @param id 
      */
     public void setId(Integer id) {
         this.id = id;
     }
 
     /**
-     *
-     * @return title
+     * 
+     * @return title 
      */
     public String getTitle() {
         return title;
     }
 
     /**
-     *
-     * @param title
+     * 
+     * @param title 
      */
     public void setTitle(String title) {
         this.title = title == null ? null : title.trim();
@@ -147,80 +133,80 @@ public class ArticleEntity extends AbstractEntity {
     }
 
     /**
-     *
-     * @return summary
+     * 
+     * @return summary 
      */
     public String getSummary() {
         return summary;
     }
 
     /**
-     *
-     * @param summary
+     * 
+     * @param summary 
      */
     public void setSummary(String summary) {
         this.summary = summary == null ? null : summary.trim();
     }
 
     /**
-     *
-     * @return cid
+     * 
+     * @return cid 
      */
     public Integer getCid() {
         return cid;
     }
 
     /**
-     *
-     * @param cid
+     * 
+     * @param cid 
      */
     public void setCid(Integer cid) {
         this.cid = cid;
     }
 
     /**
-     *
-     * @return uid
+     * 
+     * @return uid 
      */
-    public Long getUid() {
+    public Integer getUid() {
         return uid;
     }
 
     /**
-     *
-     * @param uid
+     * 
+     * @param uid 
      */
-    public void setUid(Long uid) {
+    public void setUid(Integer uid) {
         this.uid = uid;
     }
 
     /**
-     *
-     * @return publishDate
+     * 
+     * @return publishDate 
      */
     public Date getPublishdate() {
         return publishdate;
     }
 
     /**
-     *
-     * @param publishdate
+     * 
+     * @param publishdate 
      */
     public void setPublishdate(Date publishdate) {
         this.publishdate = publishdate;
     }
 
     /**
-     *
-     * @return editTime
+     * 
+     * @return editTime 
      */
     public Date getEdittime() {
         return edittime;
     }
 
     /**
-     *
-     * @param edittime
+     * 
+     * @param edittime 
      */
     public void setEdittime(Date edittime) {
         this.edittime = edittime;
@@ -243,48 +229,48 @@ public class ArticleEntity extends AbstractEntity {
     }
 
     /**
-     *
-     * @return pageView
+     * 
+     * @return pageView 
      */
     public Integer getPageview() {
         return pageview;
     }
 
     /**
-     *
-     * @param pageview
+     * 
+     * @param pageview 
      */
     public void setPageview(Integer pageview) {
         this.pageview = pageview;
     }
 
     /**
-     *
-     * @return created
+     * 
+     * @return created 
      */
     public Date getCreated() {
         return created;
     }
 
     /**
-     *
-     * @param created
+     * 
+     * @param created 
      */
     public void setCreated(Date created) {
         this.created = created;
     }
 
     /**
-     *
-     * @return updated
+     * 
+     * @return updated 
      */
     public Date getUpdated() {
         return updated;
     }
 
     /**
-     *
-     * @param updated
+     * 
+     * @param updated 
      */
     public void setUpdated(Date updated) {
         this.updated = updated;

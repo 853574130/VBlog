@@ -1,6 +1,6 @@
 package org.iauhsoaix.service;
 
-import org.iauhsoaix.bean.Category;
+import org.iauhsoaix.oldbean.Category;
 import org.iauhsoaix.dal.mapper.CategoryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

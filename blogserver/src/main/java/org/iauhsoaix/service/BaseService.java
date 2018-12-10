@@ -1,22 +1,15 @@
 package org.iauhsoaix.service;
 
 
-import org.iauhsoaix.bean.BaseInfo;
+import org.iauhsoaix.oldbean.BaseInfo;
 import org.iauhsoaix.dal.entity.AbstractEntity;
 import org.iauhsoaix.exceptions.CommonBusinessException;
 import org.iauhsoaix.manager.BaseManager;
 import org.iauhsoaix.utils.ExchangeUtils;
-import org.iauhsoaix.utils.Pager;
-import org.slf4j.Logger;
 import org.springframework.stereotype.Service;
-import tk.mybatis.mapper.entity.Condition;
-import tk.mybatis.mapper.entity.Example;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 

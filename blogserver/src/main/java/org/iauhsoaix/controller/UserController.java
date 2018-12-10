@@ -1,6 +1,6 @@
 package org.iauhsoaix.controller;
 
-import org.iauhsoaix.bean.RespBean;
+import org.iauhsoaix.oldbean.RespBean;
 import org.iauhsoaix.service.UserService;
 import org.iauhsoaix.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;

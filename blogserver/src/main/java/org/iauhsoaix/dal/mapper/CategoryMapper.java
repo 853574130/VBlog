@@ -2,7 +2,7 @@ package org.iauhsoaix.dal.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.iauhsoaix.bean.Category;
+import org.iauhsoaix.oldbean.Category;
 
 import java.util.List;
 

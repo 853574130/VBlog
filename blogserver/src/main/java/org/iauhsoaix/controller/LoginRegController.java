@@ -1,7 +1,7 @@
 package org.iauhsoaix.controller;
 
-import org.iauhsoaix.bean.RespBean;
-import org.iauhsoaix.bean.User;
+import org.iauhsoaix.oldbean.RespBean;
+import org.iauhsoaix.oldbean.User;
 import org.iauhsoaix.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

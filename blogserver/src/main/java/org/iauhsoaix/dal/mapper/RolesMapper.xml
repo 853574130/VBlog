@@ -9,7 +9,7 @@
             (null,#{role},#{uid})
         </foreach>
     </insert>
-    <select id="getRolesByUid" parameterType="long" resultType="org.iauhsoaix.bean.Role">
+    <select id="getRolesByUid" parameterType="long" resultType="org.iauhsoaix.oldbean.Role">
         SELECT r.* FROM roles r,roles_user ru WHERE r.`id`=ru.`rid` AND ru.`uid`=#{uid}
     </select>
 </mapper>

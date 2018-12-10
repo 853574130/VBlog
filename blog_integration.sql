@@ -19,6 +19,7 @@ CREATE TABLE `article` (
   #CONSTRAINT `article_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `category` (`id`),
   #CONSTRAINT `article_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8;
+
 DROP TABLE IF EXISTS `article_tags`;
 CREATE TABLE `article_tags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -57,10 +58,10 @@ CREATE TABLE `comments` (
   `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `status` int(1) NOT NULL DEFAULT '1' COMMENT '评论状态，0：正常，1：待审核，2：回收站',  
-  PRIMARY KEY (`id`),
-  KEY `article_id` (`article_id`),
+  PRIMARY KEY (`id`)
+  /*KEY `article_id` (`article_id`),
   KEY `commenter_id` (`commenter_id`),
-  KEY `parentId` (`parentId`)
+  KEY `parentId` (`parentId`)*/
   #CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
   #CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`commenter_id`) REFERENCES `user` (`id`),
   #CONSTRAINT `comments_ibfk_3` FOREIGN KEY (`parentId`) REFERENCES `comments` (`id`)
@@ -101,15 +102,15 @@ CREATE TABLE `tags` (
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(64) DEFAULT NULL,
-  `nickname` varchar(64) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `enabled` tinyint(1) DEFAULT '1',
-  `email` varchar(64) DEFAULT NULL,
+  `username` varchar(64) DEFAULT NULL COMMENT '用户名',
+  `nickname` varchar(64) DEFAULT NULL COMMENT '显示昵称',
+  `password` varchar(255) DEFAULT NULL COMMENT '密码',
+  #`enabled` tinyint(1) DEFAULT '1' COMMENT '日志标题',
+  `email` varchar(64) DEFAULT NULL COMMENT '邮箱',
   `userface` varchar(255) DEFAULT NULL,
-      `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  `status` int(1) NOT NULL DEFAULT '1' COMMENT '可用状态字',
+  `status` int(1) NOT NULL DEFAULT '1' COMMENT '评论状态，1：正常，0：禁用',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `log`;

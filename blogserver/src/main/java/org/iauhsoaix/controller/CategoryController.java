@@ -1,7 +1,7 @@
 package org.iauhsoaix.controller;
 
-import org.iauhsoaix.bean.Category;
-import org.iauhsoaix.bean.RespBean;
+import org.iauhsoaix.oldbean.Category;
+import org.iauhsoaix.oldbean.RespBean;
 import org.iauhsoaix.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

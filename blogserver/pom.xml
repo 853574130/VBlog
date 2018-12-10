@@ -25,6 +25,20 @@
 	</properties>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.mybatis.generator</groupId>
+			<artifactId>mybatis-generator-core</artifactId>
+			<!-- 注意版本.这里我使用的是1.3.2 -->
+			<version>1.3.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.iauhsoaix</groupId>
+			<artifactId>MyCommentGenerator</artifactId>
+			<version>0.1.SNAPSHOT</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
@@ -100,31 +114,21 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<!--Mybatis-generator插件,用于自动生成Mapper和POJO-->
 				<groupId>org.mybatis.generator</groupId>
 				<artifactId>mybatis-generator-maven-plugin</artifactId>
 				<version>1.3.2</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.iauhsoaix</groupId>
+						<artifactId>MyCommentGenerator</artifactId>
+						<version>0.1.SNAPSHOT</version>
+					</dependency>
+				</dependencies>
+
 				<configuration>
-					<!--配置文件的位置-->
-					<!--<configurationFile>yourLocation/generatorConfig.xml</configurationFile>-->
 					<verbose>true</verbose>
 					<overwrite>true</overwrite>
 				</configuration>
-				<executions>
-					<execution>
-						<id>Generate MyBatis Artifacts</id>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>org.mybatis.generator</groupId>
-						<artifactId>mybatis-generator-core</artifactId>
-						<version>1.3.2</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

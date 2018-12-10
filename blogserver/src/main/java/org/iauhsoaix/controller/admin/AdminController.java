@@ -1,7 +1,7 @@
 package org.iauhsoaix.controller.admin;
 
-import org.iauhsoaix.bean.Article;
-import org.iauhsoaix.bean.RespBean;
+import org.iauhsoaix.oldbean.Article;
+import org.iauhsoaix.oldbean.RespBean;
 import org.iauhsoaix.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -2,7 +2,7 @@ package org.iauhsoaix.dal.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.iauhsoaix.bean.Article;
+import org.iauhsoaix.oldbean.Article;
 import org.iauhsoaix.dal.entity.ArticleEntity;
 import org.iauhsoaix.utils.BasicMapper;
 

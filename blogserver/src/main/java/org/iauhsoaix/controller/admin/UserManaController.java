@@ -1,8 +1,8 @@
 package org.iauhsoaix.controller.admin;
 
-import org.iauhsoaix.bean.RespBean;
-import org.iauhsoaix.bean.Role;
-import org.iauhsoaix.bean.User;
+import org.iauhsoaix.oldbean.RespBean;
+import org.iauhsoaix.oldbean.Role;
+import org.iauhsoaix.oldbean.User;
 import org.iauhsoaix.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

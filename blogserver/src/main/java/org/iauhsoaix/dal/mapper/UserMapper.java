@@ -2,8 +2,8 @@ package org.iauhsoaix.dal.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.iauhsoaix.bean.Role;
-import org.iauhsoaix.bean.User;
+import org.iauhsoaix.oldbean.Role;
+import org.iauhsoaix.oldbean.User;
 
 import java.util.List;
 

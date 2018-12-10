@@ -1,7 +1,7 @@
 package org.iauhsoaix.service;
 
-import org.iauhsoaix.bean.Role;
-import org.iauhsoaix.bean.User;
+import org.iauhsoaix.oldbean.Role;
+import org.iauhsoaix.oldbean.User;
 import org.iauhsoaix.dal.mapper.RolesMapper;
 import org.iauhsoaix.dal.mapper.UserMapper;
 import org.iauhsoaix.utils.Util;

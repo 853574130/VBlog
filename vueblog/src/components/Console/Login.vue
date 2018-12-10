@@ -30,7 +30,7 @@
         },
         checked: true,
         loginForm: {
-          username: 'sang',
+          username: 'linghu',
           password: '123'
         },
         loading: false

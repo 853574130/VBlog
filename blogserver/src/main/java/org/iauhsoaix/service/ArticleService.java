@@ -1,6 +1,6 @@
 package org.iauhsoaix.service;
 
-import org.iauhsoaix.bean.Article;
+import org.iauhsoaix.oldbean.Article;
 import org.iauhsoaix.dal.entity.ArticleEntity;
 import org.iauhsoaix.dal.mapper.ArticleMapper;
 import org.iauhsoaix.dal.mapper.TagsMapper;

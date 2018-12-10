@@ -1,6 +1,6 @@
 package org.iauhsoaix.utils;
 
-import org.iauhsoaix.bean.User;
+import org.iauhsoaix.oldbean.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 /**

@@ -1,4 +1,4 @@
-package org.iauhsoaix.bean;
+package org.iauhsoaix.oldbean;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;

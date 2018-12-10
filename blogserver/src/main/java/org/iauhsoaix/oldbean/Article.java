@@ -1,4 +1,4 @@
-package org.iauhsoaix.bean;
+package org.iauhsoaix.oldbean;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -28,13 +28,19 @@ public class Article extends BaseInfo{
      */
     private String summary;
 
-    private Long cid;
+    private Integer cid;
     /**
      * 发表用户 多对一
      */
     private Long uid;
 
     private Timestamp publishDate;
+    /**
+     * 0 已发布
+     * 1 草稿
+     * 2 回收站
+     */
+    private Integer state;
     /**
      * 文章访问量
      */
@@ -143,11 +149,11 @@ public class Article extends BaseInfo{
         this.summary = summary;
     }
 
-    public Long getCid() {
+    public Integer getCid() {
         return cid;
     }
 
-    public void setCid(Long cid) {
+    public void setCid(Integer cid) {
         this.cid = cid;
     }
 
@@ -165,6 +171,14 @@ public class Article extends BaseInfo{
 
     public void setPublishDate(Timestamp publishDate) {
         this.publishDate = publishDate;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     public Integer getPageView() {
